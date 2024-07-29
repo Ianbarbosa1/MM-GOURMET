@@ -1,0 +1,191 @@
+@media screen and (min-width: 350px) and (max-width: 449px){
+    .nome-logo {
+        display: block;
+        text-align: center;
+        padding-top: 90%;
+    }
+    .nome-logo img {
+        height: 150px;
+    }
+    .nome-logo h1 {
+        font-size: 45px;
+    }
+    .cardapio {
+        height: 500px;
+        gap: 30px;
+    }
+    .cardapio a {
+        text-decoration: none;
+        backdrop-filter: blur(5px);
+        font-size:18px;
+        transform: translateY(0px);
+        transition: all 1s ease;
+    }
+
+    .container-two {
+        padding-top: 50px;
+    }
+
+    /*HORARIOS DE FUNCIONAMENTO*/
+    .funcionamento {
+        height: 150px;
+        max-width: 100%;
+        margin: 0px 10px 50px 10px;
+        font-size: 15px;
+    }
+    .dias{
+        gap: 10px;
+    }
+    .titulo {
+        font-size: 16px;
+        width: 345px;
+        margin-left: 5px;
+    }
+    .tipos {
+        width: 100%;
+        gap: 0px;
+        margin: 0px 0px;
+        padding: 3px;
+        border: 2px;
+        border-style: outset;
+        border-color: rgb(189, 7, 7) rgb(255, 0, 0) red silver;
+    }
+    .container-interno {
+        height: 165px;
+        width: 340px;
+    }
+    .nome-produto {
+        font-size: 17px;
+    }
+    .descricao {
+        font-size:14px;
+        width: 200px;
+    }
+    .imagens-ilustrativas img {
+        height: 100px;
+        width:100px;
+    }
+    .adicionar {
+        height: 30px;
+        width: 30px;
+    }
+    .adicionar img {
+        height: 20px;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 700px){
+    .nome-logo {
+        display: block;
+        text-align: center;
+        margin-top: 150%;
+    }
+    .nome-logo img {
+        height: 100px;
+    }
+    .nome-logo h1 {
+        font-size: 50px;
+    }
+
+    .container-two {
+        padding-top: 50px;
+    }
+
+    /*HORARIOS DE FUNCIONAMENTO*/
+    .funcionamento {
+        height: 150px;
+        max-width: 100%;
+        margin: 0px 10px 50px 10px;
+        font-size: 20px;
+    }
+    .dias{
+        gap: 20px;
+    }
+    .titulo {
+        font-size: 19px;
+        width: 425px;
+        margin-left: 10px;
+    }
+    .tipos {
+        width: 97%;
+        gap: 5px;
+        margin: 0px 10px;
+        padding: 3px;
+    }
+    .container-interno {
+        height: 165px;
+        width: 400px;
+    }
+    .nome-produto {
+        font-size: 17px;
+    }
+    .descricao {
+        font-size:14px;
+        width: 255px;
+    }
+    .imagens-ilustrativas img {
+        height: 100px;
+        width:100px;
+    }
+    .adicionar {
+        height: 30px;
+        width: 30px;
+    }
+    .adicionar img {
+        height: 20px;
+    }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1000px){
+    .container-two {
+        padding-top: 50px;
+    }
+
+    /*HORARIOS DE FUNCIONAMENTO*/
+    .funcionamento {
+        height: 200px;
+        max-width: 100%;
+        margin: 0px 10px 50px 10px;
+    }
+    .tipos {
+        width: 97%;
+        gap: 5px;
+        margin: 0px 10px;
+        padding: 3px;
+    }
+    .container-interno {
+        height: 165px;
+        width: 320px;
+    }
+    .nome-produto {
+        font-size: 17px;
+    }
+    .descricao {
+        font-size: 13px;
+        width: 160px;
+    }
+    .imagens-ilustrativas img {
+        height: 100px;
+        width: 100px;
+    }
+
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1500px){
+
+    /*HORARIOS DE FUNCIONAMENTO*/
+    .funcionamento {
+        max-width: 100%;
+    }
+    .tipos {
+        width: 95%;
+    }
+    .container-interno {
+        width: 450px;
+        height: 165px;
+    }
+    .descricao {
+        width: 250px;
+    }
+
+}
