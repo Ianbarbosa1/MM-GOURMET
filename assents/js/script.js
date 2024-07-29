@@ -182,10 +182,10 @@ function envio() {
     let PagamentoDinheiro = simNao()
     let troco = document.querySelector('.troco').value
     let frase = ''
-    if(PagamentoDinheiro === '1'){
+    if (PagamentoDinheiro === '1') {
         troco = Number(troco)
     }
-    else if (PagamentoDinheiro === '2'){
+    else if (PagamentoDinheiro === '2') {
         frase = 'Não precisa de troco'
 
     }
@@ -209,41 +209,43 @@ function envio() {
         alert('Por favor, digite seu nome!')
         preventDefault()
     }
-    else if(tipoPagamento === 'FORMAS DE PAGAMENTO'){
+    else if (tipoPagamento === 'FORMAS DE PAGAMENTO') {
         alert('Por favor, escolha uma forma de pagamento válida')
         preventDefault()
-    }else if(troco < valorTotal){
-        alert(`O valor adicionado no troco tem que ser maior do que o valor total da compra de R$${valorTotal}`)
     }
-    else if(troco > valorTotal){
-        if (PagamentoDinheiro === '1'){
-            let url = 'http://wa.me/' + numero + '?text='
-                + '*PEDIDO MM-GOURMET*' + '%0a'
-                + ' ' + '%0a'
-                + '*Nome:* ' + nome + '%0a%0a'
-                + '*-----PRODUTOS-----*' + '%0a'
-                + produto + '%0a'
-                + '*Obs:* ' + obs + '%0a'
-                + '*Forma de pagamento:* ' + tipoPagamento + '%0a'
-                + '*Valor Total:* R$' + valorTotal + '%0a'
-                + '*Troco:* R$' + valorDotroco + '%0a'
-            window.open(url, '_blank').focus()
-        }
-        else if (PagamentoDinheiro === '2'){
-            let url = 'http://wa.me/' + numero + '?text='
-                + '*PEDIDO MM-GOURMET*' + '%0a'
-                + ' ' + '%0a'
-                + '*Nome:* ' + nome + '%0a%0a'
-                + '*-----PRODUTOS-----*' + '%0a'
-                + produto + '%0a'
-                + '*Obs:* ' + obs + '%0a'
-                + '*Forma de pagamento:* ' + tipoPagamento + '%0a'
-                + '*Valor Total:* R$' + valorTotal + '%0a'
-                + frase + '%0a'
-            window.open(url, '_blank').focus()
+    else if (tipoPagamento === 'DINHEIRO') {
+        if (troco < valorTotal) {
+            alert(`O valor adicionado no troco tem que ser maior do que o valor total da compra de R$${valorTotal}`)
+        } else if (troco > valorTotal) {
+            if (PagamentoDinheiro === '1') {
+                let url = 'http://wa.me/' + numero + '?text='
+                    + '*PEDIDO MM-GOURMET*' + '%0a'
+                    + ' ' + '%0a'
+                    + '*Nome:* ' + nome + '%0a%0a'
+                    + '*-----PRODUTOS-----*' + '%0a'
+                    + produto + '%0a'
+                    + '*Obs:* ' + obs + '%0a'
+                    + '*Forma de pagamento:* ' + tipoPagamento + '%0a'
+                    + '*Valor Total:* R$' + valorTotal + '%0a'
+                    + '*Troco:* R$' + valorDotroco + '%0a'
+                window.open(url, '_blank').focus()
+            }
+            else if (PagamentoDinheiro === '2') {
+                let url = 'http://wa.me/' + numero + '?text='
+                    + '*PEDIDO MM-GOURMET*' + '%0a'
+                    + ' ' + '%0a'
+                    + '*Nome:* ' + nome + '%0a%0a'
+                    + '*-----PRODUTOS-----*' + '%0a'
+                    + produto + '%0a'
+                    + '*Obs:* ' + obs + '%0a'
+                    + '*Forma de pagamento:* ' + tipoPagamento + '%0a'
+                    + '*Valor Total:* R$' + valorTotal + '%0a'
+                    + frase + '%0a'
+                window.open(url, '_blank').focus()
+            }
         }
     }
-    else{
+    else {
         let url = 'http://wa.me/' + numero + '?text='
             + '*PEDIDO MM-GOURMET*' + '%0a'
             + ' ' + '%0a'
