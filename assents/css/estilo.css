@@ -215,6 +215,7 @@ select{
 }
 .troco{
     width: 130px;
+    text-align: center;
 }
 .dados p{
     color: white;
