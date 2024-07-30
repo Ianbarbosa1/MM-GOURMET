@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 
 /*DISPLAYS FLEX*/
@@ -322,7 +322,7 @@ select{
 .nome-logo h1 {
     color: white;
     font-size: 60px;
-    font-family: "Merienda", cursive;
+    font-family: "Merienda", cursiva;
     font-optical-sizing: auto;
     font-weight: weight;
     font-style: normal;
@@ -474,7 +474,7 @@ select{
 .container-adicionais h1{
     font-size:18px;
     margin-bottom: 20px;
-    font-family: "Merienda", cursive;
+    font-family: "Merienda", cursiva;
 }
 .adicionais{
     gap: 10px;
