@@ -9,7 +9,7 @@ body {
 }
 
 /*DISPLAYS FLEX*/
-.container-carrinho, .fechar-carrinho, .produtos-adicionados nav, .container-dados-adicionais , .dados-externo, .nome-user,.menu, .menu a, .abertura-carrinho, .nome-logo, .cardapio, .funcionamento, .dias,.container-two, .tipos, .adicionar, .container-one ,footer{
+.container-carrinho, .fechar-carrinho, .produtos-adicionados nav, .container-dados-adicionais , .dados-externo, .nome-user,.menu, .menu a, .abertura-carrinho, .nome-logo, .cardapio, .funcionamento, .dias,.container-two, .tipos, .adicionar, .container-one, .container-adicionais, .adicionais, footer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,13 +114,13 @@ body {
 #add-dados{
     border-radius: 10px;
     padding: 10px;
-    border: 0.5px solid black;
+    border: 1px solid burlywood;
     cursor: pointer;
     font-family:'Montserrat';
     font-weight:600;
     font-size: 12px;
     display: none;
-    margin-left: 10px;
+    margin: 0px 0px 10px 10px  ;
     background-size: 300% 100%;
     background-image: linear-gradient(to left, rgb(255, 255, 255), rgba(254, 255, 252, 0.856), rgb(255, 62, 62), rgba(255, 255, 255, 0.726), rgba(255, 255, 255, 0.678));
     animation: degrade 5s infinite alternate;
@@ -130,7 +130,7 @@ body {
     background-image: linear-gradient(to left, rgb(0, 0, 0), rgba(0, 0, 0, 0.856), rgb(255, 62, 62), rgba(0, 0, 0, 0.726), rgba(0, 0, 0, 0.678));
 }
 
-/*ENDEREÇO*/
+/*DADOS ADICIONAIS*/
 .container-dados-adicionais{
     display: none;
     height: 100%;
@@ -145,12 +145,14 @@ body {
     height: 500px;
     width: 350px;
     content: '';
-    background-image: url(../imagens/Icones/hamburguer\ and\ potato.png);
-    border: 1px solid rgba(255, 255, 255, 0.705);
+    background-image: url(../imagens//Icones/hamburguer-colorido.png);
+    border: 3px solid burlywood;
     background-position: center;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
     background-color: rgba(255, 255, 255, 0.692);
     text-align: center;
+    
 }
 .retornar{
     height: 30px;
@@ -218,7 +220,8 @@ select{
     text-align: center;
 }
 .dados p{
-    color: white;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
     margin-top: 10px;
     font-size: 13px;
     backdrop-filter: blur(5px);
@@ -235,7 +238,8 @@ select{
     border: 1px solid white;
 }
 .enviar:hover{
-    border: 1px solid rgb(0, 0, 0)
+    padding: 6px;
+    border: 1px solid rgb(150, 150, 150);
 }
 
 /*PRIMEIRA PARTE VISIVEL DO SITE (imagem de entrada e escolhas)*/
@@ -453,6 +457,39 @@ select{
 }
 .adicionar:hover{
     background-color: red;
+}
+
+/*ADICIONAIS*/
+.container-adicionais{
+    color: white;
+    height: 190px;
+    width: 850px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 50px;
+    content:'';
+    background-image: url(../imagens/img-adicionais.png);
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 10px;
+}
+.container-adicionais h1{
+    font-size:18px;
+    margin-bottom: 20px;
+    font-family: "Merienda", cursive;
+}
+.adicionais{
+    gap: 10px;
+    text-align: start;
+    font-size: 14px;
+}
+.adicionais div{
+    padding: 3px;
+    border: 1px solid rgb(255, 255, 255);
+}
+.aviso-adicionais{
+    font-size: 13px;
+    margin: 20px 30px 0px 30px ;
 }
 footer{
     height: 100px;
