@@ -56,15 +56,17 @@
         border-color: rgb(189, 7, 7) rgb(255, 0, 0) red silver;
     }
     .container-interno {
-        height: 165px;
+        height: 185px;
         width: 340px;
     }
     .nome-produto {
         font-size: 17px;
+        margin-left: 1px;
     }
     .descricao {
         font-size:14px;
         width: 200px;
+        margin-left: 2px;
     }
     .imagens-ilustrativas img {
         height: 100px;
@@ -238,7 +240,7 @@
         height: 100px;
         width: 100px;
     }
-    
+
     /*ADICIONAIS*/
     .container-adicionais{
         color: white;
