@@ -1,4 +1,5 @@
 @media screen and (min-width: 350px) and (max-width: 449px){
+    /*NOME E LOGO DA EMPRESA*/
     .nome-logo {
         display: block;
         text-align: center;
@@ -10,6 +11,8 @@
     .nome-logo h1 {
         font-size: 45px;
     }
+
+    /*ESCOLHA DE TIPOS DE PRODUTO NO*/
     .cardapio {
         height: 500px;
         gap: 30px;
@@ -36,6 +39,8 @@
     .dias{
         gap: 10px;
     }
+
+    /*PRODUTOS*/
     .titulo {
         font-size: 16px;
         width: 345px;
@@ -65,6 +70,8 @@
         height: 100px;
         width:100px;
     }
+
+    /*ADICIONA O ITEM NO CARRINHO*/
     .adicionar {
         height: 30px;
         width: 30px;
@@ -72,6 +79,8 @@
     .adicionar img {
         height: 20px;
     }
+
+    /*ADICIONAIS*/
     .container-adicionais{
         color: white;
         height: 250px;
@@ -95,6 +104,7 @@
 }
 
 @media screen and (min-width: 450px) and (max-width: 700px){
+    /*NOME E LOGO DA EMPRESA*/
     .nome-logo {
         display: block;
         text-align: center;
@@ -105,6 +115,18 @@
     }
     .nome-logo h1 {
         font-size: 50px;
+    }
+
+    /*ESCOLHA DE TIPOS DE PRODUTO NO CARDAPIO*/
+    .cardapio {
+        height:500px;
+        gap: 50px;
+        opacity: 0;
+        transition: all 1s ease;
+        flex-wrap: wrap;
+    }
+    .cardapio a {
+        padding: 10px 25px;
     }
 
     .container-two {
@@ -121,6 +143,8 @@
     .dias{
         gap: 20px;
     }
+
+    /*PRODUTOS*/
     .titulo {
         font-size: 19px;
         width: 425px;
@@ -147,6 +171,8 @@
         height: 100px;
         width:100px;
     }
+
+    /*ADICIONA O ITEM NO CARRINHO*/
     .adicionar {
         height: 30px;
         width: 30px;
@@ -154,6 +180,8 @@
     .adicionar img {
         height: 20px;
     }
+
+    /*ADICIONAIS*/
     .container-adicionais{
         color: white;
         height: 250px;
@@ -187,6 +215,8 @@
         max-width: 100%;
         margin: 0px 10px 50px 10px;
     }
+
+    /*PRODUTOS*/
     .tipos {
         width: 97%;
         gap: 5px;
@@ -208,6 +238,8 @@
         height: 100px;
         width: 100px;
     }
+    
+    /*ADICIONAIS*/
     .container-adicionais{
         color: white;
         height: 190px;
@@ -235,4 +267,5 @@
     .descricao {
         width: 250px;
     }
+
 }
