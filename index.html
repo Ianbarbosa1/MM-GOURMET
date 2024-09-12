@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Bruno+Ace&family=Orbitron:wght@400..900&display=swap"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Bruno+Ace&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 
 </head>
 
@@ -24,8 +24,7 @@
             <nav class="fechar-carrinho" id="fc">✖</nav>
             <h1>🛍 CARRINHO 🛒</h1>
             <div class="produtos-adicionados"></div>
-            <textarea id="obs" placeholder="Observação"></textarea>
-            <p class="taxa">Taxa de Entrega: R$3.00</p>
+            <textarea id="adicional" placeholder="Observação"></textarea>
             <div class="valor-add">
                 <input type="button" value="Dados Adicionais" id="add-dados">
                 <div class="valor-total">R$ 00.00</div>
@@ -33,46 +32,79 @@
         </nav>
     </article>
 
+    <!--ESCOLHA DO BAIRRO DE ENTREGA-->
+    <article class="container-bairro">
+        <section class="container-interno-bairro">
+            <h1>Selecione o bairro para calcularmos a sua taxa de entrega.</h1>
+
+            <select name="" id="bairros-itaborai" onchange="escolhaBairro()">
+                <option value="">Bairros</option>
+                <option value="">Areal</option>
+                <option value="">Ampliação</option>
+                <option value="">Caluge</option>
+                <option value="">Colônia</option>
+                <option value="">Centro</option>
+                <option value="">Engenho Velho</option>
+                <option value="">Nancilândia</option>
+                <option value="">Nova Cidade</option>
+                <option value="">Rio Varzea</option>
+                <option value="">Venda das Pedras</option>
+                <option value="">Vila Rica</option>
+                <option value="">Ferma</option>
+                <option value="">Jardim Imperial</option>
+                <option value="">Santo Expedito</option>
+                <option value="">Quissamã</option>
+                <option value="">Sossego</option>
+                <option value="">Retiro </option>
+            </select>
+            <button id="botao-bairro">Confirmar</button>
+
+            <p>Bairros da cidade itaboraí-RJ</p>
+        </section>
+
+        <span>Caso o seu bairro não esteja entre umas das opções acima é porque não efetuamos entrega para este local.</span>
+    </article>
+
     <!--DADOS ADICIONAIS-->
     <article class="container-dados-adicionais">
         <nav class="dados-externo">
-            <div>
-                <p class="retornar">⬅voltar</p>
-                <h1>DADOS ADICIONAIS</h1>
+            <p class="retornar">⬅voltar</p>
+            <h1>DADOS ADICIONAIS</h1>
 
-                <div class="nome-user">
-                    <input type="text" placeholder="NOME COMPLETO" id="nome-usuario">
-                </div>
+            <div class="nome-user">
+                <input type="text" placeholder="NOME COMPLETO" id="nome-usuario">
+            </div>
 
-                <select name="" id="pagamentos" onchange="formasPagamentos()">
-                    <option value="">FORMAS DE PAGAMENTO</option>
-                    <option value="">DINHEIRO</option>
-                    <option value="">CARTÃO DE DÉBITO</option>
-                    <option value="">CARTÃO DE CRÉDITO</option>
-                    <option value="">PIX</option>
+            <select name="" id="pagamentos" onchange="formasPagamentos()">
+                <option value="">FORMAS DE PAGAMENTO</option>
+                <option value="">DINHEIRO</option>
+                <option value="">CARTÃO DE DÉBITO</option>
+                <option value="">CARTÃO DE CRÉDITO</option>
+                <option value="">PIX</option>
+            </select>
+
+            <div class="area-troco">
+                <select name="" id="SN" class="SN" onchange="simNao()">
+                    <option value="0">PRECISA DE TROCO?</option>
+                    <option value="1">SIM</option>
+                    <option value="2">NÃO</option>
                 </select>
 
-                <div class="area-troco">
-                    <div>
-                        <select name="" id="SN" class="SN" onchange="simNao()">
-                            <option value="0">PRECISA DE TROCO?</option>
-                            <option value="1">SIM</option>
-                            <option value="2">NÃO</option>
-                        </select>
-
-                        <div>
-                            <input type="number" id="troco" class="troco" placeholder="Valor Inteiro">
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="dados">
-                    <p>Assim que for direcionado para o WhatsApp, por favor nos envie a sua localização para podermos efetuar a entrega.</p>
-                </div>
-
-                <input type="button" class="enviar" value="FINALIZAR">
+                <input type="number" id="troco" class="troco" placeholder="PAGAMENTO">
             </div>
+
+            <div class="container-taxa">
+                <p class="taxa"></p>
+                <input type="button" value="Adicionar Bairro" title="Adicionar bairro para calcular entrega" id="editar-bairro">
+            </div>
+
+            <div class="dados">
+                <p>Assim que for direcionado para o WhatsApp, por favor nos envie a sua localização para podermos efetuar a entrega.</p>
+            </div>
+
+            <input type="button" class="enviar" value="FINALIZAR">
+
+            <p class="valorTot" title="Valor final mais a taxa de entrega"></p>
         </nav>
     </article>
 
@@ -112,921 +144,892 @@
     <!--PRODUTOS-->
     <main class="container-prime">
         <section class="container-two" id="HT">
-            <div>
-                <section class="funcionamento">
-                    <p class="aviso"></p>
+            <section class="funcionamento">
+                <p class="aviso"></p>
+                <h1>HORÁRIOS DE FUNCIONAMENTO</h1>
+                <div class="dias">
                     <div>
-                        <h1>HORÁRIOS DE FUNCIONAMENTO</h1>
-                        <div class="dias">
-                            <div>
-                                <p>Segunda á Quinta</p>
-                                <p>Das 18hrs ás 23hrs</p>
-                            </div>
-                            <div>|</div>
-                            <div>
-                                <p>Sexta á Domingo</p>
-                                <p>Das 18hrs ás Meia noite</p>
-                            </div>
-                        </div>
-
+                        <p>Segunda á Quinta</p>
+                        <p>Das 18hrs ás 23hrs</p>
                     </div>
-                </section>
+                    <div>|</div>
+                    <div>
+                        <p>Sexta á Domingo</p>
+                        <p>Das 18hrs ás Meia noite</p>
+                    </div>
+                </div>
+            </section>
 
-                <h2 class="titulo">HAMBURGUERS TRADICIONAIS</h2>
-                <nav class="tipos">
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
+            <h2 class="titulo">HAMBURGUERS TRADICIONAIS</h2>
+            <nav class="tipos">
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Hamburguer Simples</p>
+                        <p class="descricao">Pão e carne.</p>
+                        <p class="valor">R$ 9.00</p>
+                    </div>
+                    <div class="adicionar" nome="Hamburguer Simples" valor="9.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">X-Búrguer</p>
+                        <p class="descricao">Pão, carne e queijo.</p>
+                        <p class="valor">R$ 10.00</p>
+                    </div>
+                    <div class="adicionar" nome="X-Búrguer" valor="10.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Duplo Cheddar Bacon</p>
+                        <p class="descricao">Pão, 2 carnes, 2 queijo cheddar, cheddar creme e bacon.</p>
+                        <p class="valor">R$ 16.00</p>
+                    </div>
+                    <div class="adicionar" nome="Duplo Cheddar Bacon" valor="16.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">X-Tudo</p>
+                        <p class="descricao">Pão, carne, cheddar creme, ovo, queijo mussarela, queijo cheddar, bacon
+                            e alface.</p>
+                        <p class="valor">R$ 16.00</p>
+                    </div>
+                    <div class="adicionar" nome="X-Tudo" valor="16.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">X-Duplo</p>
+                        <p class="descricao">Pão, 2 carnes, cheddar creme, 2 ovos, 2 queijo mussarela,2 queijo
+                            cheddar, bacon e alface. </p>
+                        <p class="valor">R$ 20.00</p>
+                    </div>
+                    <div class="adicionar" nome="X-Duplo" valor="20.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Triplo Cheddar</p>
+                        <p class="descricao">Pão, 3 carnes e 3 fatias de queijo cheddar. </p>
+                        <p class="valor">R$ 20.00</p>
+                    </div>
+                    <div class="adicionar" nome="Triplo Cheddar" valor="20.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">X-Tudo de Picanha</p>
+                        <p class="descricao">Pão, carne de picanha, cheddar creme, ovo, queijo mussarela, queijo
+                            cheddar, bacon e alface.</p>
+                        <p class="valor">R$ 20.00</p>
+                    </div>
+                    <div class="adicionar" nome="X-Tudo de Picanha" valor="20.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Triplo Cheddar de Picanha</p>
+                        <p class="descricao">Pão, 3 carnes de picanha, 3 fatias de queijo cheddar.</p>
+                        <p class="valor">R$ 25.00</p>
+                    </div>
+                    <div class="adicionar" nome="Triplo Cheddar de Picanha" valor="25.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">X-Duplo de Picanha</p>
+                        <p class="descricao">Pão, 2 carnes de picanha, cheddar creme, 2 ovos, 2 queijos mussarela, 2
+                            queijo cheddar, bacon e alface.</p>
+                        <p class="valor">R$ 29.00</p>
+                    </div>
+                    <div class="adicionar" nome="X-Duplo de Picanha" valor="29.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-adicionais">
+                    <h1>ADICIONAIS</h1>
+                    <div class="adicionais">
+                        <div>
+                            <p>Maionese Extra - R$ 1,00</p>
+                            <p>Cheddar Creme - R$ 1,50</p>
+                            <p>Ovo - R$ 2,00</p>
                         </div>
                         <div>
-                            <p class="nome-produto">Hamburguer Simples</p>
-                            <p class="descricao">Pão e carne.</p>
-                            <p class="valor">R$ 9.00</p>
-                        </div>
-                        <div class="adicionar" nome="Hamburguer Simples" valor="9.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
+                            <p>Bacon - R$ 2,00</p>
+                            <p>Queijo Mussarela - R$ 2,00</p>
+                            <p>Cebola Agridoce- R$ 2,00</p>
                         </div>
                         <div>
-                            <p class="nome-produto">X-Búrguer</p>
-                            <p class="descricao">Pão, carne e queijo.</p>
-                            <p class="valor">R$ 10.00</p>
-                        </div>
-                        <div class="adicionar" nome="X-Búrguer" valor="10.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
+                            <p>Catupiry - R$ 2,00</p>
+                            <p>Queijo Cheddar - R$ 2,50</p>
+                            <p>Carne Tradicional - R$ 3,00</p>
                         </div>
                         <div>
-                            <p class="nome-produto">Duplo Cheddar Bacon</p>
-                            <p class="descricao">Pão, 2 carnes, 2 queijo cheddar, cheddar creme e bacon.</p>
-                            <p class="valor">R$ 16.00</p>
-                        </div>
-                        <div class="adicionar" nome="Duplo Cheddar Bacon" valor="16.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                            <p>Queijo Coalho - R$ 4,00</p>
+                            <p>Carne Artesanal - R$ 5,00</p>
+                            <p>Carne de Picanha - R$ 6,00</p>
                         </div>
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">X-Tudo</p>
-                            <p class="descricao">Pão, carne, cheddar creme, ovo, queijo mussarela, queijo cheddar, bacon e alface.</p>
-                            <p class="valor">R$ 16.00</p>
-                        </div>
-                        <div class="adicionar" nome="X-Tudo" valor="16.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">X-Duplo</p>
-                            <p class="descricao">Pão, 2 carnes, cheddar creme, 2 ovos, 2 queijo mussarela,2 queijo cheddar, bacon e alface. </p>
-                            <p class="valor">R$ 20.00</p>
-                        </div>
-                        <div class="adicionar" nome="X-Duplo" valor="20.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Triplo Cheddar</p>
-                            <p class="descricao">Pão, 3 carnes e 3 fatias de queijo cheddar. </p>
-                            <p class="valor">R$ 20.00</p>
-                        </div>
-                        <div class="adicionar" nome="Triplo Cheddar" valor="20.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">X-Tudo de Picanha</p>
-                            <p class="descricao">Pão, carne de picanha, cheddar creme, ovo, queijo mussarela, queijo cheddar, bacon e alface.</p>
-                            <p class="valor">R$ 20.00</p>
-                        </div>
-                        <div class="adicionar" nome="X-Tudo de Picanha" valor="20.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Triplo Cheddar de Picanha</p>
-                            <p class="descricao">Pão, 3 carnes de picanha, 3 fatias de queijo cheddar.</p>
-                            <p class="valor">R$ 25.00</p>
-                        </div>
-                        <div class="adicionar" nome="Triplo Cheddar de Picanha" valor="25.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-1.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">X-Duplo de Picanha</p>
-                            <p class="descricao">Pão, 2 carnes de picanha, cheddar creme, 2 ovos, 2 queijos mussarela, 2 queijo cheddar, bacon e alface.</p>
-                            <p class="valor">R$ 29.00</p>
-                        </div>
-                        <div class="adicionar" nome="X-Duplo de Picanha" valor="29.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-adicionais">
-                        <nav>
-                            <h1>ADICIONAIS</h1>
-                            <div class="adicionais">
-                                <div>
-                                    <p>Maionese Extra - R$ 1,00</p>
-                                    <p>Cheddar Creme - R$ 1,50</p>
-                                    <p>Ovo - R$ 2,00</p>
-                                </div>
-                                <div>
-                                    <p>Bacon - R$ 2,00</p>
-                                    <p>Queijo Mussarela - R$ 2,00</p>
-                                    <p>Cebola Agridoce- R$ 2,00</p>
-                                </div>
-                                <div>
-                                    <p>Catupiry - R$ 2,00</p>
-                                    <p>Queijo Cheddar - R$ 2,50</p>
-                                    <p>Carne Tradicional - R$ 3,00</p>
-                                </div>
-                                <div>
-                                    <p>Queijo Coalho - R$ 4,00</p>
-                                    <p>Carne Artesanal - R$ 5,00</p>
-                                    <p>Carne de Picanha - R$ 6,00</p>
-                                </div>
-                            </div>
-                            <p class="aviso-adicionais">Os adicionais deverão ser escritos no campo <b>descrição</b>
-                                localizado no carrinho de compras, o valor do <b>adicional</b> será somado com o valor final
-                                pelo atendente. </p>
-                        </nav>
-                    </div>
-                </nav>
-            </div>
+                    <p class="aviso-adicionais">Os adicionais deverão ser escritos no campo <b>descrição</b>
+                        localizado no carrinho de compras, o valor do <b>adicional</b> será somado com o valor
+                        final
+                        pelo atendente. </p>
+                </div>
+            </nav>
         </section>
 
         <section class="container-two" id="HA">
-            <div>
-                <h2 class="titulo">HAMBURGUERS ARTESANAIS</h2>
-                <nav class="tipos">
+            <h2 class="titulo">HAMBURGUERS ARTESANAIS</h2>
 
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+            <nav class="tipos">
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Duplo Cheddar Bacon (art)</p>
+                        <p class="descricao">Pão, 2 carnes, 2 queijos cheddar, cheddar creme e bacon</p>
+                        <p class="valor">R$ 20.00</p>
+                    </div>
+                    <div class="adicionar" nome="Duplo Cheddar Bacon (art)" valor="20.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">X-Tudo de Costela C/Bacon</p>
+                        <p class="descricao">Pão, carne de costela, cheddar creme, ovos, queijo mussarela, queijo, bacon e alface.</p>
+                        <p class="valor">R$ 20.00</p>
+                    </div>
+                    <div class="adicionar" nome="X-Tudo de Costela C/Bacon" valor="20.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">X-Tudo de Cupim C/ Queijo Coalho</p>
+                        <p class="descricao">Pão, carne de cupim, queijo coalho, cheddar creme, ovo, queijo mussarela, queijo cheddar, bacon e alface. </p>
+                        <p class="valor">R$ 21.00</p>
+                    </div>
+                    <div class="adicionar" nome="X-Tudo de Cupim C/ Queijo Coalho" valor="21.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">MM Brasileirinho</p>
+                        <p class="descricao">Pão, 1 hamburguer de cafta 120g, cheddar creme, alface, queijo mussarela, ovo, bacon, catupiry e cebola agridoce.</p>
+                        <p class="valor">R$ 22.00</p>
+                    </div>
+                    <div class="adicionar" nome="MM Brasileirinho" valor="22.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">MM Onion</p>
+                        <p class="descricao">Pão, 1 hamburguer de cafta ou frango,alface, mussarela gratinada, catupiry, cebola onion e bacon crocante.</p>
+                        <p class="valor">R$ 22.00</p>
+                    </div>
+                    <div class="adicionar" nome="MM Onion" valor="22.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">MM Casadinho</p>
+                        <p class="descricao">Pão, cafta 120g, cheddar creme, alface, queijo mussarela, empanado de frango recheado com queijo e presunto.</p>
+                        <p class="valor">R$ 23.00</p>
+                    </div>
+                    <div class="adicionar" nome="MM Casadinho" valor="23.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">MM Supreme</p>
+                        <p class="descricao">Pão, 1 hamburguer de cafta 120g, cheddar creme, alface, queijo mussarela, bacon, catupiry e camarão.</p>
+                        <p class="valor">R$ 23.00</p>
+                    </div>
+                    <div class="adicionar" nome="MM Supreme" valor="23.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Triplo Cheddar (art)</p>
+                        <p class="descricao">Pão, 3 carnes e 3 fatias de queijo cheddar.</p>
+                        <p class="valor">R$ 24.00</p>
+                    </div>
+                    <div class="adicionar" nome="Triplo Cheddar (art)" valor="24.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">X-Duplo de Costela C/Bacon</p>
+                        <p class="descricao">Pão, 2 carnes de costela, cheddar creme, 2 ovos, 2 queijos mussarela, 2 queijos cheddar, bacon e alface.</p>
+                        <p class="valor">R$ 26.00</p>
+                    </div>
+                    <div class="adicionar" nome="X-Duplo de Costela C/Bacon" valor="26.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">MM Malvadão</p>
+                        <p class="descricao">Pão, cheddar creme, salsicha, carne de hamburguer, carne artesanal de costela c/ bacon, ovo, queijo mussarela, queijo cheddar e alface.</p>
+                        <p class="valor">R$ 26.00</p>
+                    </div>
+                    <div class="adicionar" nome="MM Malvadão" valor="26.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">X-Duplo de Cupim C/ Queijo Coalho</p>
+                        <p class="descricao">Pão, 2 carnes de cupim, queijo coalho, cheddar creme, 2 ovos, 2 queijos mussarela, 2 queijos cheddar, bacon e alface.</p>
+                        <p class="valor">R$ 29.00</p>
+                    </div>
+                    <div class="adicionar" nome="X-Duplo de Cupim C/ Queijo Coalho" valor="29.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-adicionais">
+                    <h1>ADICIONAIS</h1>
+                    <div class="adicionais">
+                        <div>
+                            <p>Maionese Extra - R$ 1,00</p>
+                            <p>Cheddar Creme - R$ 1,50</p>
+                            <p>Ovo - R$ 2,00</p>
                         </div>
                         <div>
-                            <p class="nome-produto">Duplo Cheddar Bacon (art)</p>
-                            <p class="descricao">Pão, 2 carnes, 2 queijos cheddar, cheddar creme e bacon</p>
-                            <p class="valor">R$ 20.00</p>
-                        </div>
-                        <div class="adicionar" nome="Duplo Cheddar Bacon (art)" valor="20.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                            <p>Bacon - R$ 2,00</p>
+                            <p>Queijo Mussarela - R$ 2,00</p>
+                            <p>Cebola Agridoce- R$ 2,00</p>
                         </div>
                         <div>
-                            <p class="nome-produto">X-Tudo de Costela C/Bacon</p>
-                            <p class="descricao">Pão, carne de costela, cheddar creme, ovos, queijo mussarela, queijo, bacon e alface.</p>
-                            <p class="valor">R$ 20.00</p>
-                        </div>
-                        <div class="adicionar" nome="X-Tudo de Costela C/Bacon" valor="20.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
+                            <p>Catupiry - R$ 2,00</p>
+                            <p>Queijo Cheddar - R$ 2,50</p>
+                            <p>Carne Tradicional - R$ 3,00</p>
                         </div>
                         <div>
-                            <p class="nome-produto">X-Tudo de Cupim C/ Queijo Coalho</p>
-                            <p class="descricao">Pão, carne de cupim, queijo coalho, cheddar creme, ovo, queijo mussarela, queijo cheddar, bacon e alface. </p>
-                            <p class="valor">R$ 21.00</p>
-                        </div>
-                        <div class="adicionar" nome="X-Tudo de Cupim C/ Queijo Coalho" valor="21.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                            <p>Queijo Coalho - R$ 4,00</p>
+                            <p>Carne Artesanal - R$ 5,00</p>
+                            <p>Carne de Picanha - R$ 6,00</p>
                         </div>
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">MM Brasileirinho</p>
-                            <p class="descricao">Pão, 1 hamburguer de cafta 120g, cheddar creme, alface, queijo mussarela, ovo, bacon, catupiry e cebola agridoce.</p>
-                            <p class="valor">R$ 22.00</p>
-                        </div>
-                        <div class="adicionar" nome="MM Brasileirinho" valor="22.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">MM Onion</p>
-                            <p class="descricao">Pão, 1 hamburguer de cafta ou frango,alface, mussarela gratinada, catupiry, cebola onion e bacon crocante.</p>
-                            <p class="valor">R$ 22.00</p>
-                        </div>
-                        <div class="adicionar" nome="MM Onion" valor="22.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">MM Casadinho</p>
-                            <p class="descricao">Pão, cafta 120g, cheddar creme, alface, queijo mussarela, empanado de frango recheado com queijo e presunto.</p>
-                            <p class="valor">R$ 23.00</p>
-                        </div>
-                        <div class="adicionar" nome="MM Casadinho" valor="23.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">MM Supreme</p>
-                            <p class="descricao">Pão, 1 hamburguer de cafta 120g, cheddar creme, alface, queijo mussarela, bacon, catupiry e camarão.</p>
-                            <p class="valor">R$ 23.00</p>
-                        </div>
-                        <div class="adicionar" nome="MM Supreme" valor="23.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Triplo Cheddar (art)</p>
-                            <p class="descricao">Pão, 3 carnes e 3 fatias de queijo cheddar.</p>
-                            <p class="valor">R$ 24.00</p>
-                        </div>
-                        <div class="adicionar" nome="Triplo Cheddar (art)" valor="24.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">X-Duplo de Costela C/Bacon</p>
-                            <p class="descricao">Pão, 2 carnes de costela, cheddar creme, 2 ovos, 2 queijos mussarela, 2 queijos cheddar, bacon e alface.</p>
-                            <p class="valor">R$ 26.00</p>
-                        </div>
-                        <div class="adicionar" nome="X-Duplo de Costela C/Bacon" valor="26.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">MM Malvadão</p>
-                            <p class="descricao">Pão, cheddar creme, salsicha, carne de hamburguer, carne artesanal de costela c/ bacon, ovo, queijo mussarela, queijo cheddar e alface.</p>
-                            <p class="valor">R$ 26.00</p>
-                        </div>
-                        <div class="adicionar" nome="MM Malvadão" valor="26.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/hamburguer-2.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">X-Duplo de Cupim C/ Queijo Coalho</p>
-                            <p class="descricao">Pão, 2 carnes de cupim, queijo coalho, cheddar creme, 2 ovos, 2 queijos mussarela, 2 queijos cheddar, bacon e alface.</p>
-                            <p class="valor">R$ 29.00</p>
-                        </div>
-                        <div class="adicionar" nome="X-Duplo de Cupim C/ Queijo Coalho" valor="29.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-adicionais">
-                        <nav>
-                            <h1>ADICIONAIS</h1>
-                            <div class="adicionais">
-                                <div>
-                                    <p>Maionese Extra - R$ 1,00</p>
-                                    <p>Cheddar Creme - R$ 1,50</p>
-                                    <p>Ovo - R$ 2,00</p>
-                                </div>
-                                <div>
-                                    <p>Bacon - R$ 2,00</p>
-                                    <p>Queijo Mussarela - R$ 2,00</p>
-                                    <p>Cebola Agridoce- R$ 2,00</p>
-                                </div>
-                                <div>
-                                    <p>Catupiry - R$ 2,00</p>
-                                    <p>Queijo Cheddar - R$ 2,50</p>
-                                    <p>Carne Tradicional - R$ 3,00</p>
-                                </div>
-                                <div>
-                                    <p>Queijo Coalho - R$ 4,00</p>
-                                    <p>Carne Artesanal - R$ 5,00</p>
-                                    <p>Carne de Picanha - R$ 6,00</p>
-                                </div>
-                            </div>
-                            <p class="aviso-adicionais">Os adicionais deverão ser escritos no campo <b>descrição</b>
-                                localizado no carrinho de compras, o valor do <b>adicional</b> será somado com o valor final
-                                pelo atendente. </p>
-                        </nav>
-                    </div>
-                </nav>
-            </div>
+                    <p class="aviso-adicionais">Os adicionais deverão ser escritos no campo <b>descrição</b> localizado no carrinho de compras, o valor do <b>adicional</b> será somado com o valor final pelo atendente. </p>
+                </div>
+            </nav>
         </section>
 
         <section class="container-two" id="PR">
-            <div>
-                <h2 class="titulo">PÃO RECHEADO</h2>
-                <nav class="tipos">
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
+            <h2 class="titulo">PÃO RECHEADO</h2>
+
+            <nav class="tipos">
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Pão Recheado c/ Frango</p>
+                        <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
+                        <p class="valor">R$ 20.00</p>
+                    </div>
+                    <div class="adicionar" nome="Pão Recheado c/ Frango" valor="20.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Pão Recheado c/ Linguiça Mineira</p>
+                        <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
+                        <p class="valor">R$ 20.00</p>
+                    </div>
+                    <div class="adicionar" nome="Pão Recheado c/ Linguiça Mineira" valor="20.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Pão Recheado c/ Cafta</p>
+                        <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
+                        <p class="valor">R$ 20.00</p>
+                    </div>
+                    <div class="adicionar" nome="Pão Recheado c/ Cafta" valor="20.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Pão Recheado c/ Contra Filé</p>
+                        <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
+                        <p class="valor">R$ 20.00</p>
+                    </div>
+                    <div class="adicionar" nome="Pão Recheado c/ Contra Filé" valor="20.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Pão Recheado c/ Coração</p>
+                        <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
+                        <p class="valor">R$ 20.00</p>
+                    </div>
+                    <div class="adicionar" nome="Pão Recheado c/ Coração" valor="20.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Pão Recheado Misto</p>
+                        <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
+                        <p class="valor">R$ 22.00</p>
+                    </div>
+                    <div class="adicionar" nome="Pão Recheado Misto" valor="22.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Pão Recheado c/ Camarão</p>
+                        <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
+                        <p class="valor">R$ 22.00</p>
+                    </div>
+                    <div class="adicionar" nome="Pão Recheado c/ Camarão" valor="22.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-adicionais">
+                    <h1>ADICIONAIS</h1>
+                    <div class="adicionais">
+                        <div>
+                            <p>Queijo Mussarela - R$ 2,00</p>
                         </div>
                         <div>
-                            <p class="nome-produto">Pão Recheado c/ Frango</p>
-                            <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
-                            <p class="valor">R$ 20.00</p>
-                        </div>
-                        <div class="adicionar" nome="Pão Recheado c/ Frango" valor="20.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
+                            <p>Cheddar Creme - R$ 2,00</p>
                         </div>
                         <div>
-                            <p class="nome-produto">Pão Recheado c/ Linguiça Mineira</p>
-                            <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
-                            <p class="valor">R$ 20.00</p>
-                        </div>
-                        <div class="adicionar" nome="Pão Recheado c/ Linguiça Mineira" valor="20.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                            <p>Catupiry - R$ 2,50</p>
                         </div>
                     </div>
+                    <p class="aviso-adicionais">Os adicionais deverão ser escritos no campo <b>descrição</b> localizado no carrinho de compras, o valor do <b>adicional</b> será somado com o valor final pelo atendente. </p>
+                </div>
 
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Pão Recheado c/ Cafta</p>
-                            <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
-                            <p class="valor">R$ 20.00</p>
-                        </div>
-                        <div class="adicionar" nome="Pão Recheado c/ Cafta" valor="20.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Pão Recheado c/ Contra Filé</p>
-                            <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
-                            <p class="valor">R$ 20.00</p>
-                        </div>
-                        <div class="adicionar" nome="Pão Recheado c/ Contra Filé" valor="20.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Pão Recheado c/ Coração</p>
-                            <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
-                            <p class="valor">R$ 20.00</p>
-                        </div>
-                        <div class="adicionar" nome="Pão Recheado c/ Coração" valor="20.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Pão Recheado Misto</p>
-                            <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
-                            <p class="valor">R$ 22.00</p>
-                        </div>
-                        <div class="adicionar" nome="Pão Recheado Misto" valor="22.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/pão-recheado.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Pão Recheado c/ Camarão</p>
-                            <p class="descricao">Pão, pasta de parmesão ou ervas finas e mussarela gratinada.</p>
-                            <p class="valor">R$ 22.00</p>
-                        </div>
-                        <div class="adicionar" nome="Pão Recheado c/ Camarão" valor="22.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-adicionais">
-                        <nav>
-                            <h1>ADICIONAIS</h1>
-                            <div class="adicionais">
-                                <div>
-                                    <p>Queijo Mussarela - R$ 2,00</p>
-                                </div>
-                                <div>
-                                    <p>Cheddar Creme - R$ 2,00</p>
-                                </div>
-                                <div>
-                                    <p>Catupiry - R$ 2,50</p>
-                                </div>
-                            </div>
-                            <p class="aviso-adicionais">Os adicionais deverão ser escritos no campo <b>descrição</b>
-                                localizado no carrinho de compras, o valor do <b>adicional</b> será somado com o valor final
-                                pelo atendente. </p>
-                        </nav>
-                    </div>
-
-                </nav>
-            </div>
+            </nav>
         </section>
 
         <section class="container-two" id="BP">
-            <div>
-                <h2 class="titulo">BATATA E PORÇÕES</h2>
-                <nav class="tipos">
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
+            <h2 class="titulo">BATATA E PORÇÕES</h2>
+            <nav class="tipos">
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Batata frita Simples Média</p>
+                        <p class="valor">R$ 15.00</p>
+                    </div>
+                    <div class="adicionar" nome="Batata frita Simples Média" valor="15.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Batata frita Simples Grande</p>
+                        <p class="valor">R$ 25.00</p>
+                    </div>
+                    <div class="adicionar" nome="Batata frita Simples Grande" valor="25.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Porção de Nugget's (6 unidades)</p>
+                        <p class="valor">R$ 12.00</p>
+                    </div>
+                    <div class="adicionar" nome="Porção de Nugget's (6 unidades)" valor="12.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Porção de Cebola Onion (8 unidades)</p>
+                        <p class="valor">R$ 14.00</p>
+                    </div>
+                    <div class="adicionar" nome="Porção de Cebola Onion (8 unidades)" valor="14.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Batata Turbinada de Bacon Media</p>
+                        <p class="descricao">Com cheddar creme e mussarela gratinada.</p>
+                        <p class="valor">R$ 35.00</p>
+                    </div>
+                    <div class="adicionar" nome="Batata Turbinada de Bacon Media" valor="35.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Batata Turbinada de Bacon Grande</p>
+                        <p class="descricao">Com cheddar creme e mussarela gratinada.</p>
+                        <p class="valor">R$ 39.00</p>
+                    </div>
+                    <div class="adicionar" nome="Batata Turbinada de Bacon Grande" valor="39.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Batata Turbinada de Churrasco Media</p>
+                        <p class="descricao">Opções: Frango | Linguiça Mineira | Cafta | Contra-Filé | Coração | Misto.</p>
+                        <p class="descricao">Com cheddar creme e mussarela gratinada.</p>
+                        <p class="valor">R$ 38.00</p>
+                    </div>
+                    <div class="adicionar" nome="Batata Turbinada de Churrasco Media" valor="38.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Batata Turbinada de Churrasco Grande</p>
+                        <p class="descricao">Opções: Frango | Linguiça Mineira | Cafta | Contra-Filé | Coração | Misto.</p>
+                        <p class="descricao">Com cheddar creme e mussarela gratinada.</p>
+                        <p class="valor">R$ 42.00</p>
+                    </div>
+                    <div class="adicionar" nome="Batata Turbinada de Churrasco Grande" valor="42.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Batata Turbinada de Camarão Media</p>
+                        <p class="descricao">Com catupiry e mussarela gratinada.</p>
+                        <p class="valor">R$ 40.00</p>
+                    </div>
+                    <div class="adicionar" nome="Batata Turbinada de Camarão Media" valor="40.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Batata Turbinada de Camarão Grande</p>
+                        <p class="descricao">Com catupiry e mussarela gratinada.</p>
+                        <p class="valor">R$ 44.00</p>
+                    </div>
+                    <div class="adicionar" nome="Batata Turbinada de Camarão Grande" valor="44.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-adicionais">
+                    <h1>ADICIONAIS</h1>
+                    <div class="adicionais">
+                        <div>
+                            <p>Catupiry - R$ 2,00</p>
+                            <p>Bacon - R$ 2,50</p>
                         </div>
                         <div>
-                            <p class="nome-produto">Batata frita Simples Média</p>
-                            <p class="valor">R$ 15.00</p>
-                        </div>
-                        <div class="adicionar" nome="Batata frita Simples Média" valor="15.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
+                            <p>Cheddar Creme - R$ 3,00</p>
+                            <p>Queijo Coalho - R$ 4,00</p>
                         </div>
                         <div>
-                            <p class="nome-produto">Batata frita Simples Grande</p>
-                            <p class="valor">R$ 25.00</p>
-                        </div>
-                        <div class="adicionar" nome="Batata frita Simples Grande" valor="25.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                            <p>Queijo Mussarela - R$ 4,00</p>
                         </div>
                     </div>
+                    <p class="aviso-adicionais">Os adicionais deverão ser escritos no campo <b>descrição</b> localizado no carrinho de compras, o valor do <b>adicional</b> será somado com o valor final pelo atendente. </p>
+                </div>
 
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Porção de Nugget's (6 unidades)</p>
-                            <p class="valor">R$ 12.00</p>
-                        </div>
-                        <div class="adicionar" nome="Porção de Nugget's (6 unidades)" valor="12.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Porção de Cebola Onion (8 unidades)</p>
-                            <p class="valor">R$ 14.00</p>
-                        </div>
-                        <div class="adicionar" nome="Porção de Cebola Onion (8 unidades)" valor="14.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Batata Turbinada de Bacon Media</p>
-                            <p class="descricao">Com cheddar creme e mussarela gratinada.</p>
-                            <p class="valor">R$ 35.00</p>
-                        </div>
-                        <div class="adicionar" nome="Batata Turbinada de Bacon Media" valor="35.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Batata Turbinada de Bacon Grande</p>
-                            <p class="descricao">Com cheddar creme e mussarela gratinada.</p>
-                            <p class="valor">R$ 39.00</p>
-                        </div>
-                        <div class="adicionar" nome="Batata Turbinada de Bacon Grande" valor="39.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Batata Turbinada de Churrasco Media</p>
-                            <p class="descricao">Opções: Frango | Linguiça Mineira | Cafta | Contra-Filé | Coração | Misto.</p>
-                            <p class="descricao">Com cheddar creme e mussarela gratinada.</p>
-                            <p class="valor">R$ 38.00</p>
-                        </div>
-                        <div class="adicionar" nome="Batata Turbinada de Churrasco Media" valor="38.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Batata Turbinada de Churrasco Grande</p>
-                            <p class="descricao">Opções: Frango | Linguiça Mineira | Cafta | Contra-Filé | Coração |
-                                Misto.
-                            </p>
-                            <p class="descricao">Com cheddar creme e mussarela gratinada.</p>
-                            <p class="valor">R$ 42.00</p>
-                        </div>
-                        <div class="adicionar" nome="Batata Turbinada de Churrasco Grande" valor="42.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Batata Turbinada de Camarão Media</p>
-                            <p class="descricao">Com catupiry e mussarela gratinada.</p>
-                            <p class="valor">R$ 40.00</p>
-                        </div>
-                        <div class="adicionar" nome="Batata Turbinada de Camarão Media" valor="40.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/batata-frita.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Batata Turbinada de Camarão Grande</p>
-                            <p class="descricao">Com catupiry e mussarela gratinada.</p>
-                            <p class="valor">R$ 44.00</p>
-                        </div>
-                        <div class="adicionar" nome="Batata Turbinada de Camarão Grande" valor="44.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
-                    </div>
-
-
-                    <div class="container-adicionais">
-                        <nav>
-                            <h1>ADICIONAIS</h1>
-                            <div class="adicionais">
-                                <div>
-                                    <p>Catupiry - R$ 2,00</p>
-                                    <p>Bacon - R$ 2,50</p>
-                                </div>
-                                <div>
-                                    <p>Cheddar Creme - R$ 3,00</p>
-                                    <p>Queijo Coalho - R$ 4,00</p>
-                                </div>
-                                <div>
-                                    <p>Queijo Mussarela - R$ 4,00</p>
-                                </div>
-                            </div>
-                            <p class="aviso-adicionais">Os adicionais deverão ser escritos no campo <b>descrição</b>
-                                localizado no carrinho de compras, o valor do <b>adicional</b> será somado com o valor final
-                                pelo atendente. </p>
-                        </nav>
-                    </div>
-
-                </nav>
-            </div>
+            </nav>
         </section>
 
         <section class="container-two" id="CC">
-            <div>
-                <h2 class="titulo">COMPLETÃO COM CHURRASQUINHO</h2>
-                <nav class="tipos">
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/churrasco.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Churrasquinho de Frango</p>
-                            <p class="descricao">Acompanhamentos: Arroz, farofa, macarronese, molho á campanha, batata frita.</p>
-                            <p class="valor">R$ 28.00</p>
-                        </div>
-                        <div class="adicionar" nome="Churrasquinho de Frango" valor="28.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+            <h2 class="titulo">COMPLETÃO COM CHURRASQUINHO</h2>
+            <nav class="tipos">
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/churrasco.jpeg" alt="">
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/churrasco.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Churrasquinho de Cafta</p>
-                            <p class="descricao">Acompanhamentos: Arroz, farofa, macarronese, molho á campanha, batata frita.</p>
-                            <p class="valor">R$ 28.00</p>
-                        </div>
-                        <div class="adicionar" nome="Churrasquinho de Cafta" valor="28.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                    <div>
+                        <p class="nome-produto">Churrasquinho de Frango</p>
+                        <p class="descricao">Acompanhamentos: Arroz, farofa, macarronese, molho á campanha, batata frita.</p>
+                        <p class="valor">R$ 28.00</p>
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/churrasco.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Churrasquinho de Contra Filé</p>
-                            <p class="descricao">Acompanhamentos: Arroz, farofa, macarronese, molho á campanha, batata frita.</p>
-                            <p class="valor">R$ 28.00</p>
-                        </div>
-                        <div class="adicionar" nome="Churrasquinho de Contra Filé" valor="28.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                    <div class="adicionar" nome="Churrasquinho de Frango" valor="28.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
                     </div>
+                </div>
 
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/churrasco.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Churrasquinho de Coração</p>
-                            <p class="descricao">Acompanhamentos: Arroz, farofa, macarronese, molho á campanha, batata frita.</p>
-                            <p class="valor">R$ 28.00</p>
-                        </div>
-                        <div class="adicionar" nome="Churrasquinho de Coração" valor="28.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/churrasco.jpeg" alt="">
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/churrasco.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Churrasquinho de Linguiça Mineira</p>
-                            <p class="descricao">Acompanhamentos: Arroz, farofa, macarronese, molho á campanha, batata frita.</p>
-                            <p class="valor">R$ 28.00</p>
-                        </div>
-                        <div class="adicionar" nome="Churrasquinho de Linguiça Mineira" valor="28.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                    <div>
+                        <p class="nome-produto">Churrasquinho de Cafta</p>
+                        <p class="descricao">Acompanhamentos: Arroz, farofa, macarronese, molho á campanha, batata frita.</p>
+                        <p class="valor">R$ 28.00</p>
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/churrasco.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Churrasquinho Misto</p>
-                            <p class="descricao">Acompanhamentos: Arroz, farofa, macarronese, molho á campanha, batata frita.</p>
-                            <p class="valor">R$ 30.00</p>
-                        </div>
-                        <div class="adicionar" nome="Churrasquinho Misto" valor="30.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                    <div class="adicionar" nome="Churrasquinho de Cafta" valor="28.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
                     </div>
+                </div>
 
-                </nav>
-            </div>
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/churrasco.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Churrasquinho de Contra Filé</p>
+                        <p class="descricao">Acompanhamentos: Arroz, farofa, macarronese, molho á campanha, batata frita.</p>
+                        <p class="valor">R$ 28.00</p>
+                    </div>
+                    <div class="adicionar" nome="Churrasquinho de Contra Filé" valor="28.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/churrasco.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Churrasquinho de Coração</p>
+                        <p class="descricao">Acompanhamentos: Arroz, farofa, macarronese, molho á campanha, batata frita.</p>
+                        <p class="valor">R$ 28.00</p>
+                    </div>
+                    <div class="adicionar" nome="Churrasquinho de Coração" valor="28.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/churrasco.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Churrasquinho de Linguiça Mineira</p>
+                        <p class="descricao">Acompanhamentos: Arroz, farofa, macarronese, molho á campanha, batata frita.</p>
+                        <p class="valor">R$ 28.00</p>
+                    </div>
+                    <div class="adicionar" nome="Churrasquinho de Linguiça Mineira" valor="28.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/churrasco.jpeg" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Churrasquinho Misto</p>
+                        <p class="descricao">Acompanhamentos: Arroz, farofa, macarronese, molho á campanha, batata frita.</p>
+                        <p class="valor">R$ 30.00</p>
+                    </div>
+                    <div class="adicionar" nome="Churrasquinho Misto" valor="30.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+            </nav>
         </section>
 
         <section class="container-two" id="BE">
-            <div>
-                <h2 class="titulo">BEBIDAS</h2>
-                <nav class="tipos">
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/agua.png" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Agua Natural</p>
-                            <p class="valor">R$ 2.50</p>
-                        </div>
-                        <div class="adicionar" nome="Agua Natural" valor="2.50">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+            <h2 class="titulo">BEBIDAS</h2>
+            <nav class="tipos">
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/agua.png" alt="">
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/guaravita.png" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Guaravita</p>
-                            <p class="valor">R$ 2.50</p>
-                        </div>
-                        <div class="adicionar" nome="Guaravita" valor="2.50">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                    <div>
+                        <p class="nome-produto">Agua Natural</p>
+                        <p class="valor">R$ 2.50</p>
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/agua-gás.png" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Agua com Gás</p>
-                            <p class="valor">R$ 3.00</p>
-                        </div>
-                        <div class="adicionar" nome="Agua com Gás" valor="3.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                    <div class="adicionar" nome="Agua Natural" valor="2.50">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
                     </div>
+                </div>
 
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/coca-lata.png" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Coca-Cola Lata</p>
-                            <p class="valor">R$ 6.00</p>
-                        </div>
-                        <div class="adicionar" nome="Coca-Cola Lata" valor="6.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/guaravita.png" alt="">
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/fanta-lata.png" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Fanta lata</p>
-                            <p class="valor">R$ 6.00</p>
-                        </div>
-                        <div class="adicionar" nome="Fanta lata" valor="6.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                    <div>
+                        <p class="nome-produto">Guaravita</p>
+                        <p class="valor">R$ 2.50</p>
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/guarana-antartica-lata.png" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Guaraná Antartica Lata</p>
-                            <p class="valor">R$ 6.00</p>
-                        </div>
-                        <div class="adicionar" nome="Guarana Antartica Lata" valor="6.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                    <div class="adicionar" nome="Guaravita" valor="2.50">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
                     </div>
+                </div>
 
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/guarana-antarctica-1lt.png" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Guarana Antartica 1L</p>
-                            <p class="valor">R$ 7.00</p>
-                        </div>
-                        <div class="adicionar" nome="Guarana Antartica 1L" valor="7.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/agua-gás.png" alt="">
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/flexa.png" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Flexa 2L</p>
-                            <p class="descricao">Sabores: Guarana, limão, Cola</p>
-                            <p class="valor">R$ 8.00</p>
-                        </div>
-                        <div class="adicionar" nome="Flexa 2L" valor="8.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                    <div>
+                        <p class="nome-produto">Agua com Gás</p>
+                        <p class="valor">R$ 3.00</p>
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/dell-vale-1.5l.png" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Suco Dell Vale 1.5L</p>
-                            <p class="valor">R$ 9.00</p>
-                        </div>
-                        <div class="adicionar" nome="Suco Dell Vale 1.5L" valor="9.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                    <div class="adicionar" nome="Agua com Gás" valor="3.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
                     </div>
+                </div>
 
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/mineirinho 2l.png" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Mineirinho 2L</p>
-                            <p class="valor">R$ 10.00</p>
-                        </div>
-                        <div class="adicionar" nome="Mineirinho 2L" valor="10.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/coca-lata.png" alt="">
                     </div>
-
-                    <div class="container-interno">
-                        <div class="imagens-ilustrativas">
-                            <img src="./assents/imagens/produtos/coca-cola-2l.png" alt="">
-                        </div>
-                        <div>
-                            <p class="nome-produto">Coca-Cola 2L</p>
-                            <p class="valor">R$ 14.00</p>
-                        </div>
-                        <div class="adicionar" nome="Coca-Cola 2L" valor="14.00">
-                            <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
-                        </div>
+                    <div>
+                        <p class="nome-produto">Coca-Cola Lata</p>
+                        <p class="valor">R$ 6.00</p>
                     </div>
-                </nav>
+                    <div class="adicionar" nome="Coca-Cola Lata" valor="6.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
 
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/fanta-lata.png" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Fanta lata</p>
+                        <p class="valor">R$ 6.00</p>
+                    </div>
+                    <div class="adicionar" nome="Fanta lata" valor="6.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
 
-            </div>
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/guarana-antartica-lata.png" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Guaraná Antartica Lata</p>
+                        <p class="valor">R$ 6.00</p>
+                    </div>
+                    <div class="adicionar" nome="Guarana Antartica Lata" valor="6.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/guarana-antarctica-1lt.png" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Guarana Antartica 1L</p>
+                        <p class="valor">R$ 7.00</p>
+                    </div>
+                    <div class="adicionar" nome="Guarana Antartica 1L" valor="7.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/flexa.png" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Flexa 2L</p>
+                        <p class="descricao">Sabores: Guarana, limão, Cola</p>
+                        <p class="valor">R$ 8.00</p>
+                    </div>
+                    <div class="adicionar" nome="Flexa 2L" valor="8.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/dell-vale-1.5l.png" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Suco Dell Vale 1.5L</p>
+                        <p class="valor">R$ 9.00</p>
+                    </div>
+                    <div class="adicionar" nome="Suco Dell Vale 1.5L" valor="9.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/mineirinho 2l.png" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Mineirinho 2L</p>
+                        <p class="valor">R$ 10.00</p>
+                    </div>
+                    <div class="adicionar" nome="Mineirinho 2L" valor="10.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+
+                <div class="container-interno">
+                    <div class="imagens-ilustrativas">
+                        <img src="./assents/imagens/produtos/coca-cola-2l.png" alt="">
+                    </div>
+                    <div>
+                        <p class="nome-produto">Coca-Cola 2L</p>
+                        <p class="valor">R$ 14.00</p>
+                    </div>
+                    <div class="adicionar" nome="Coca-Cola 2L" valor="14.00">
+                        <img src="./assents/imagens/Icones/carrinho de compra.png" alt="">
+                    </div>
+                </div>
+            </nav>
         </section>
     </main>
 
@@ -1038,7 +1041,7 @@
         </div>
         <p class="ian">Ian Barbosa</p>
     </footer>
-    
+
     <script src="./assents/js/script.js"></script>
 </body>
 </html>
