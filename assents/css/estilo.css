@@ -568,7 +568,7 @@ select{
     text-align: center;
     border-radius: 50px;
     content:' ';
-    background-image: url(../imagens/adicionais.jpeg);
+    background-image: url(../imagens/adicionais.jpeg)
     background-position: center;
     background-size: cover;
     margin-bottom: 10px;
