@@ -231,7 +231,7 @@ function envio() {
 
     let nome = document.querySelector('#nome-usuario').value
     let tipoPagamento = formasPagamentos()
-    let valorTotal = Number(escolhaBairro().toFixed(2))
+    let valorTotal = Number(escolhaBairro())
     let obs = abrirDados()
     let numero = '5521998382523'
 
@@ -280,7 +280,7 @@ function envio() {
                     + produto + '%0a'
                     + '*Obs:* ' + obs + '%0a'
                     + '*Forma de pagamento:* ' + tipoPagamento + '%0a'
-                    + '*Valor Total:* R$' + valorTotal + '%0a'
+                    + '*Valor Total:* R$' + valorTotal.toFixed(2) + '%0a'
                     + '*Troco:* R$' + valorDotroco + '%0a'
                 window.open(url, '_blank').focus()
             }
@@ -294,7 +294,7 @@ function envio() {
                 + produto + '%0a'
                 + '*Obs:* ' + obs + '%0a'
                 + '*Forma de pagamento:* ' + tipoPagamento + '%0a'
-                + '*Valor Total:* R$' + valorTotal + '%0a'
+                + '*Valor Total:* R$' + valorTotal.toFixed(2) + '%0a'
                 + frase + '%0a'
             window.open(url, '_blank').focus()
         }
@@ -308,7 +308,7 @@ function envio() {
             + produto + '%0a'
             + '*Obs:* ' + obs + '%0a'
             + '*Forma de pagamento:* ' + tipoPagamento + '%0a'
-            + '*Valor Total:* R$' + valorTotal + '%0a'
+            + '*Valor Total:* R$' + valorTotal.toFixed(2) + '%0a'
         window.open(url, '_blank').focus()
     }
 }
