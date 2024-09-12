@@ -8,8 +8,7 @@ body {
 }
 
 /*DISPLAYS FLEX*/
-.container-carrinho, .fechar-carrinho, .produtos-adicionados nav, .container-dados-adicionais, .dados-externo, .nome-user,.menu, .menu a, .abertura-carrinho, .nome-logo, .cardapio, .funcionamento, .dias, .container-two, .tipos, 
-.adicionar, .container-one, .area-troco, .container-adicionais, .adicionais, footer{
+.container-carrinho, .fechar-carrinho, .produtos-adicionados nav, .valor-add,.container-dados-adicionais, .dados-externo, .nome-user,.container-bairro, .container-interno-bairro, .menu, .menu a, .abertura-carrinho, .nome-logo, .cardapio, .funcionamento, .dias, .container-two, .tipos, .adicionar, .container-one, .area-troco, .container-taxa,.container-adicionais, .adicionais, footer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,7 +80,10 @@ body {
     background-color: transparent;
     cursor: pointer;
 }
-#obs{
+.produtos-adicionados nav button:hover{
+    color: red;
+}
+#adicional{
     resize: none;
     width: 100%;
     height: 70px;
@@ -95,16 +97,9 @@ body {
     font-family:'Montserrat';
     margin-top: 25px;
 }
-.taxa{
-    text-align: start;
-    margin-top: 25px;
-    margin-left: 10px;
-    display: none;
-}
 .valor-add{
     margin-top:15px;
     position: relative;
-    display: flex;
     justify-content: space-between;
 }
 .valor-total{
@@ -114,7 +109,7 @@ body {
 #add-dados{
     border-radius: 10px;
     padding: 10px;
-    border: 1px solid burlywood;
+    border: 1px solid rgb(0, 0, 0);
     cursor: pointer;
     font-family:'Montserrat';
     font-weight:600;
@@ -130,6 +125,67 @@ body {
     background-image: linear-gradient(to left, rgb(0, 0, 0), rgba(0, 0, 0, 0.856), rgb(255, 62, 62), rgba(0, 0, 0, 0.726), rgba(0, 0, 0, 0.678));
 }
 
+
+/*ESCOLHA DO BAIRRO*/
+.container-bairro{
+    height:100vh;
+    width: 100%;
+    position: fixed;
+    z-index: +101;
+    background-color: rgba(0, 0, 0, 0.479);
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+.container-interno-bairro{
+    height: 350px;
+    width: 350px;
+    background-color: aliceblue;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 20px;
+    gap: 40px;
+    font-family:'Montserrat';
+}
+.container-interno-bairro h1{
+    font-weight: 400;
+    font-size: 18px;
+}
+.container-interno-bairro select{
+    outline: none;
+    font-size: 18px;
+    font-family:'Montserrat';
+    border: 1px solid black;
+    background-color: transparent;
+    width: 200px;
+    padding: 0px 5px;
+    color: black;
+}
+button{
+    padding: 5px 15px;
+    border: none;
+    font-family:'Montserrat';
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    transition: all 1s;
+}
+button:hover{
+    border: 2px solid rgb(0, 0, 0);
+}
+.container-bairro span{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.384);
+    backdrop-filter: blur(5px);
+    text-align: center;
+    color: white;
+}
+
+
 /*DADOS ADICIONAIS*/
 .container-dados-adicionais{
     display: none;
@@ -138,42 +194,46 @@ body {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.534);
     backdrop-filter: blur(30px);
-    z-index: +99;
+    z-index: +100;
     font-family:'Montserrat';
 }
 .dados-externo{
-    height: 500px;
-    width: 350px;
-    content: ' ';
+    height: 550px;
+    width: 355px;
+    content: '';
     background-image: url(../imagens/Icones/hamburguer-colorido.png);
     border: 3px solid burlywood;
+    border-radius: 10px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: rgba(255, 255, 255, 0.692);
+    background-color: rgba(240, 248, 255, 0.575);
     text-align: center;
+    flex-direction: column;
+    gap: 13px;
 }
 .retornar{
+    background-color: rgba(255, 255, 255, 0.685);
     height: 30px;
     width: 70px;
     border-radius: 20px;
     position: relative;
-    bottom: 35px;
+    bottom: 5px;
     padding: 3px;
     backdrop-filter:blur(10px);
     color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
+    transition: all 1s;
 }
 .retornar:hover{
     color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.589);
 }
 .dados-externo h1{
-    font-size: 23px;
+    font-size: 21px;
     color: rgb(0, 0, 0);
-    font-weight: 500;
-    backdrop-filter: blur(5px);
-    margin-bottom: 25px;
+    font-weight: 600;
 }
 .dados-externo input, select{
     outline: none;
@@ -181,60 +241,90 @@ body {
 }
 .nome-user {
     height: 50px;
-    margin-bottom: 20px;
 }
 .nome-user input, .troco{
     height: 35px;
     width: 300px;
-    padding: 5px;
+    padding: 5px 10px;
     background-color:#0000009c;
     backdrop-filter: blur(1px);
     color: white;
     border: none;
     border-bottom: 0.5px solid white;
-    border-radius: 0px 0px 10px 10px;
     font-size: 17px;
 }
 .nome-user input::placeholder{
-    color: #ffffff;
+    color: #c5c1c1;
+}
+.area-troco{
+    flex-direction: column;
 }
 select{
     height: 35px;
-    margin-bottom: 20px;
     font-size: 17px;
     background-color:#0000009c;
     backdrop-filter: blur(5px);
     color: white;
+    border: none;
 }
 .SN, .troco{
     display: none;
+    margin-top: 5px;
 }
 .troco{
-    width: 130px;
+    width: 140px;
     text-align: center;
+}
+.troco::placeholder{
+    color: #c5c1c1;
+    font-size: 15px;
+}
+.container-taxa{
+    justify-content: space-between;
+    background-color: #ffffffd5;
+    padding: 5px;
+    width: 100%;
+}
+.container-taxa input{
+    padding: 5px;
+    background-color: #000000a1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.container-taxa:hover #editar-bairro{
+    color: rgb(252, 52, 52);
 }
 .dados p{
     font-weight: 500;
-    color: rgb(0, 0, 0);
-    margin-top: 10px;
+    color: rgb(255, 255, 255);
     font-size: 13px;
     backdrop-filter: blur(5px);
     padding: 10px;
+    background-color:#0000009c
 }
 .enviar{
     font-weight: 500;
-    margin-top: 20px;
-    padding: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    background-size: 300% 100%;
-    background-image: linear-gradient(to right, greenyellow, greenyellow, white, greenyellow, greenyellow);
-    animation: degrade 5s infinite alternate;
-    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.911);
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    transition: all 1s;
 }
 .enviar:hover{
-    padding: 6px;
-    border: 1px solid rgb(150, 150, 150);
+    color: black;
+    background-color: white;
 }
+.valorTot{
+    margin-top:40px;
+    width: 100%;
+    text-align: end;
+    font-size: 18px;
+}
+
 
 /*PRIMEIRA PARTE VISIVEL DO SITE (imagem de entrada e escolhas)*/
 .container-one{
@@ -256,10 +346,16 @@ select{
     background-color: red;
     cursor: pointer;
     z-index: +3;
+    transition: all 1s;
+    border: 1px solid white;
 }
 .abertura-carrinho img{
     height: 35px;
     margin-right: 3px;
+}
+.abertura-carrinho:hover{
+    background-color: blue;
+    border: 1px solid transparent;
 }
 .container-one:hover .nome-logo {
     opacity: 0;
@@ -268,12 +364,16 @@ select{
     opacity: 1;
 }
 
-/*MENU*/
+
+/*AVISO QUE O PRODUTO FOI INSERIDO NO CARRINHO*/
 .aviso{
     position:fixed;
     top: 10px;
     z-index: +99;
 }
+
+
+/*MENU*/
 .menu {
     position: absolute;
     right: 15px;
@@ -293,6 +393,7 @@ select{
     transition: all 1s ease;
     padding: 5px;
     border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.486);
 }
 .menu a:hover {
     background-color: rgba(240, 248, 255, 0.315);
@@ -302,6 +403,7 @@ select{
     margin-right: 3px;
     border-radius: 25px;
 }
+
 
 /*NOME E LOGO*/
 .nome-logo {
@@ -323,6 +425,7 @@ select{
     font-weight: weight;
     font-style: normal;
 }
+
 
 /*ESCOLHA DOS TIPOS*/
 .cardapio {
@@ -350,6 +453,7 @@ select{
     transform: translateY(-15px);
 }
 
+
 /*CONTAINER-CARDAPIO*/
 .container-two {
     height: 100%;
@@ -357,10 +461,11 @@ select{
     background-color: silver;
     padding-top: 100px;
     padding-bottom: 20px;
+    flex-direction: column;
 }
 .funcionamento {
     height: 300px;
-    max-width: 1440px;
+    width: 1440px;
     text-align: center;
     font-family:'Kalam', cursive;
     font-size: 25px;
@@ -372,6 +477,7 @@ select{
     background-size: cover;
     margin-bottom: 20px;
     border-radius: 200px 100px;
+    flex-direction:column;
 }
 .dias{
     gap: 50px;
@@ -396,7 +502,6 @@ select{
     border-color: rgb(189, 7, 7) rgb(255, 0, 0) red silver;
     font-family: 'Montserrat';
     flex-wrap: wrap;
-    justify-content: center;
     gap: 20px;
     padding: 5px;
     margin: 0px 20px;
@@ -466,6 +571,7 @@ select{
     background-position: center;
     background-size: cover;
     margin-bottom: 10px;
+    flex-direction: column;
 }
 .container-adicionais h1{
     font-size:18px;
