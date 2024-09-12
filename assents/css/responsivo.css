@@ -257,7 +257,7 @@
 
     /*HORARIOS DE FUNCIONAMENTO*/
     .funcionamento {
-        max-width: 100%;
+        width: 1000px;
     }
     .tipos {
         width: 95%;
@@ -268,6 +268,9 @@
     }
     .descricao {
         width: 250px;
+    }
+    .container-adicionais{
+        width: 900px;
     }
 
 }
