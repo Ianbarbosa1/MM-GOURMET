@@ -47,7 +47,7 @@
                 <option value="">Engenho Velho</option>
                 <option value="">Nancilândia</option>
                 <option value="">Nova Cidade</option>
-                <option value="">Rio Varzea</option>
+                <option value="">Rio Várzea</option>
                 <option value="">Venda das Pedras</option>
                 <option value="">Vila Rica</option>
                 <option value="">Ferma</option>
@@ -71,40 +71,44 @@
             <p class="retornar">⬅voltar</p>
             <h1>DADOS ADICIONAIS</h1>
 
-            <div class="nome-user">
-                <input type="text" placeholder="NOME COMPLETO" id="nome-usuario">
-            </div>
+            
 
-            <select name="" id="pagamentos" onchange="formasPagamentos()">
-                <option value="">FORMAS DE PAGAMENTO</option>
-                <option value="">DINHEIRO</option>
-                <option value="">CARTÃO DE DÉBITO</option>
-                <option value="">CARTÃO DE CRÉDITO</option>
-                <option value="">PIX</option>
-            </select>
+            <div class="formulario">
+                <div class="nome-user">
+                    <input type="text" placeholder="NOME COMPLETO" id="nome-usuario">
+                </div>
 
-            <div class="area-troco">
-                <select name="" id="SN" class="SN" onchange="simNao()">
-                    <option value="0">PRECISA DE TROCO?</option>
-                    <option value="1">SIM</option>
-                    <option value="2">NÃO</option>
+                <select name="" id="pagamentos" onchange="formasPagamentos()">
+                    <option value="">FORMAS DE PAGAMENTO</option>
+                    <option value="">DINHEIRO</option>
+                    <option value="">CARTÃO DE DÉBITO</option>
+                    <option value="">CARTÃO DE CRÉDITO</option>
+                    <option value="">PIX</option>
                 </select>
 
-                <input type="number" id="troco" class="troco" placeholder="PAGAMENTO">
+                <div class="area-troco">
+                    <select name="" id="SN" class="SN" onchange="simNao()">
+                        <option value="0">PRECISA DE TROCO?</option>
+                        <option value="1">SIM</option>
+                        <option value="2">NÃO</option>
+                    </select>
+
+                    <input type="number" id="troco" class="troco" placeholder="PAGAMENTO">
+                </div>
             </div>
+            
 
             <div class="container-taxa">
-                <p class="taxa"></p>
+                <img src="./assents/imagens/Icones/localizacao.png" alt="">
                 <input type="button" value="Adicionar Bairro" title="Adicionar bairro para calcular entrega" id="editar-bairro">
-            </div>
-
-            <div class="dados">
-                <p>Assim que for direcionado para o WhatsApp, por favor nos envie a sua localização para podermos efetuar a entrega.</p>
             </div>
 
             <input type="button" class="enviar" value="FINALIZAR">
 
-            <p class="valorTot" title="Valor final mais a taxa de entrega"></p>
+            <nav class="valores-finais">
+                <p class="taxa"></p>
+                <p class="valorTot" title="Valor final mais a taxa de entrega"></p>
+            </nav>
         </nav>
     </article>
 
