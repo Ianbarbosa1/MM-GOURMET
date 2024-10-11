@@ -167,11 +167,8 @@ function escolhaBairro() {
     let valor = document.querySelector('.valorTot')
     let valorTotal = atualizarCarrinho()
     let valorFinal = valorTotal + TaxaEntrega
-    if(TaxaEntrega === 0){
-        taxa.innerHTML = `Escolha o bairro ->>> `
-    }
-    else{
-        taxa.innerHTML = `Taxa de entrega: ${TaxaEntrega.toFixed(2)}`
+    if(TaxaEntrega != 0){
+        taxa.innerHTML = `Entrega: ${TaxaEntrega.toFixed(2)}`
         valor.innerHTML = `Total: ${valorFinal.toFixed(2)}`
     }
     return valorFinal
@@ -255,16 +252,6 @@ function envio() {
     }
     else if(valorTotal === vlProdutos){
         alert('Por favor, escolha um bairro válido')
-        let editarBairro = document.querySelector('#editar-bairro')
-        let ContBairro = document.querySelector('.container-taxa')
-        setTimeout(() => {
-            editarBairro.style.border = '1px solid red'
-            ContBairro.style.border = '1px solid red'
-        }, 100);
-        setTimeout(() => {
-            editarBairro.style.border = 'none'
-            ContBairro.style.border = 'none'
-        }, 5000);
     }
     else if (tipoPagamento === 'DINHEIRO') {
         if (troco < valorTotal && PagamentoDinheiro === '1') {
